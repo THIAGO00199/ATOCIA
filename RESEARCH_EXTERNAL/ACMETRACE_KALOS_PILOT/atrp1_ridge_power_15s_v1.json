@@ -1,0 +1,190 @@
+{
+  "experiment": "ATRP-1 pilot: per-GPU 15-second-ahead power forecasting",
+  "dataset": "AcmeTrace/Kalos",
+  "target": "power_w at t+15s",
+  "inputs": [
+    "power at t, t-15s, t-30s",
+    "GPU temperature at t, t-15s, t-30s",
+    "GPU utilization at t, t-15s, t-30s",
+    "one-step differences for power, temperature, utilization"
+  ],
+  "model": "Ridge residual correction over persistence",
+  "features": 13,
+  "split": {
+    "train": [
+      "2023-08-17T21:04:30+08:00",
+      "2023-08-22T11:38:00+08:00"
+    ],
+    "validation": "2023-08-26T11:45:00+08:00",
+    "test": "2023-08-29T11:47:45+08:00",
+    "chronological": true,
+    "test_used_for_selection": false,
+    "windows_are_disjoint_and_never_bridged": true
+  },
+  "samples_by_window": [
+    {
+      "window": 1,
+      "samples": 82264,
+      "unique_gpus": 1582,
+      "unique_hosts": 289
+    },
+    {
+      "window": 2,
+      "samples": 316608,
+      "unique_gpus": 2328,
+      "unique_hosts": 291
+    },
+    {
+      "window": 3,
+      "samples": 337536,
+      "unique_gpus": 2344,
+      "unique_hosts": 293
+    },
+    {
+      "window": 4,
+      "samples": 278936,
+      "unique_gpus": 2344,
+      "unique_hosts": 293
+    }
+  ],
+  "train_samples": 398872,
+  "validation_samples": 337536,
+  "test_samples": 278936,
+  "validation_baseline_selection": {
+    "selected": "persistence",
+    "metrics": {
+      "persistence": {
+        "micro_mae_w": 46.666649466872805,
+        "micro_rmse_w": 108.03094646013187,
+        "macro_gpu_mae_w": 46.66664946687281,
+        "macro_host_mae_w": 46.6666494668728,
+        "gpu_entities_evaluated": 2344,
+        "host_entities_evaluated": 293,
+        "n_forecasts": 337536
+      },
+      "moving_average_3": {
+        "micro_mae_w": 76.54193693082985,
+        "micro_rmse_w": 120.36964602776823,
+        "macro_gpu_mae_w": 76.54193693082985,
+        "macro_host_mae_w": 76.54193693082982,
+        "gpu_entities_evaluated": 2344,
+        "host_entities_evaluated": 293,
+        "n_forecasts": 337536
+      },
+      "ewma_alpha_0_5": {
+        "micro_mae_w": 68.73131300529884,
+        "micro_rmse_w": 112.10904642953598,
+        "macro_gpu_mae_w": 68.73131300529884,
+        "macro_host_mae_w": 68.73131300529884,
+        "gpu_entities_evaluated": 2344,
+        "host_entities_evaluated": 293,
+        "n_forecasts": 337536
+      },
+      "ewma_alpha_0_3": {
+        "micro_mae_w": 78.37242686573217,
+        "micro_rmse_w": 121.66470641658518,
+        "macro_gpu_mae_w": 78.37242686573217,
+        "macro_host_mae_w": 78.37242686573218,
+        "gpu_entities_evaluated": 2344,
+        "host_entities_evaluated": 293,
+        "n_forecasts": 337536
+      }
+    }
+  },
+  "ridge_regularization_selection": {
+    "selected_alpha": 100.0,
+    "validation_metrics_by_alpha": {
+      "0.01": {
+        "micro_mae_w": 57.384412808227616,
+        "micro_rmse_w": 88.48211391951733,
+        "macro_gpu_mae_w": 57.384412808227616,
+        "macro_host_mae_w": 57.38441280822762,
+        "gpu_entities_evaluated": 2344,
+        "host_entities_evaluated": 293,
+        "n_forecasts": 337536
+      },
+      "0.1": {
+        "micro_mae_w": 57.38440644535899,
+        "micro_rmse_w": 88.48211402411793,
+        "macro_gpu_mae_w": 57.384406445358984,
+        "macro_host_mae_w": 57.384406445358984,
+        "gpu_entities_evaluated": 2344,
+        "host_entities_evaluated": 293,
+        "n_forecasts": 337536
+      },
+      "1.0": {
+        "micro_mae_w": 57.384342817078505,
+        "micro_rmse_w": 88.48211507053678,
+        "macro_gpu_mae_w": 57.38434281707851,
+        "macro_host_mae_w": 57.38434281707851,
+        "gpu_entities_evaluated": 2344,
+        "host_entities_evaluated": 293,
+        "n_forecasts": 337536
+      },
+      "10.0": {
+        "micro_mae_w": 57.383706567886826,
+        "micro_rmse_w": 88.48212556669007,
+        "macro_gpu_mae_w": 57.38370656788683,
+        "macro_host_mae_w": 57.38370656788683,
+        "gpu_entities_evaluated": 2344,
+        "host_entities_evaluated": 293,
+        "n_forecasts": 337536
+      },
+      "100.0": {
+        "micro_mae_w": 57.37734767341619,
+        "micro_rmse_w": 88.48223371402815,
+        "macro_gpu_mae_w": 57.377347673416196,
+        "macro_host_mae_w": 57.377347673416196,
+        "gpu_entities_evaluated": 2344,
+        "host_entities_evaluated": 293,
+        "n_forecasts": 337536
+      }
+    }
+  },
+  "untouched_test": {
+    "selected_baseline": {
+      "name": "persistence",
+      "metrics": {
+        "micro_mae_w": 55.948901897842006,
+        "micro_rmse_w": 119.86270344748777,
+        "macro_gpu_mae_w": 55.948901897842006,
+        "macro_host_mae_w": 55.948901897842006,
+        "gpu_entities_evaluated": 2344,
+        "host_entities_evaluated": 293,
+        "n_forecasts": 278936
+      }
+    },
+    "ridge_residual": {
+      "alpha": 100.0,
+      "metrics": {
+        "micro_mae_w": 59.2868226000193,
+        "micro_rmse_w": 89.20854811575664,
+        "macro_gpu_mae_w": 59.28682260001929,
+        "macro_host_mae_w": 59.28682260001929,
+        "gpu_entities_evaluated": 2344,
+        "host_entities_evaluated": 293,
+        "n_forecasts": 278936
+      }
+    },
+    "skill_vs_selected_baseline": {
+      "micro_mae_w": -0.05966016470300084,
+      "macro_gpu_mae_w": -0.05966016470300084,
+      "macro_host_mae_w": -0.05966016470300084
+    },
+    "host_bootstrap_ci_95_for_host_macro_mae_improvement_w": [
+      -4.230802009073809,
+      -2.409260826464541
+    ],
+    "bootstrap_hosts": 293,
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20261122
+  },
+  "limits": [
+    "Exploratory pilot only: four short, separated time windows, not full-period coverage.",
+    "15-second sampling cannot validate sub-second dynamics.",
+    "Test period is one future sampled window; generalization over all six months is not established.",
+    "No hyperparameter or feature choices used the test window.",
+    "Ridge is a first learnable baseline, not evidence of model novelty or commercial readiness.",
+    "Metrics describe only this extracted panel and exact evaluation mask."
+  ]
+}

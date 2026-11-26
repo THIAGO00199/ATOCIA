@@ -1,0 +1,40 @@
+{
+  "dataset": "AcmeTrace / Seren",
+  "source": "https://huggingface.co/datasets/Qinghao/AcmeTrace/tree/a484f7763a7812fc72eb49b8ba865b12fe7638e1",
+  "source_revision": "a484f7763a7812fc72eb49b8ba865b12fe7638e1",
+  "role": "Separate cross-cluster holdout; no fitting or tuning allowed",
+  "first_timestamp": "2023-08-18T07:12:45+08:00",
+  "last_timestamp": "2023-08-18T08:00:00+08:00",
+  "common_timestamps": 190,
+  "sampling_interval_seconds": 15,
+  "common_interval_seconds": [
+    15.0
+  ],
+  "gpu_columns_in_source": 1992,
+  "gpu_entities_with_data": 1960,
+  "gpu_entities_with_full_window": 1888,
+  "gpu_entities_with_partial_window": 72,
+  "unique_hosts_with_data": 245,
+  "complete_triplet_rows": 370448,
+  "possible_triplet_rows": 378480,
+  "triplet_coverage_fraction": 0.9787782709786514,
+  "range_bytes_per_metric": 2097152,
+  "downloaded_range_bytes_including_headers": 6488064,
+  "ranges": {
+    "POWER_USAGE": [
+      5742654049,
+      5744751200
+    ],
+    "GPU_TEMP": [
+      5185836519,
+      5187933670
+    ],
+    "GPU_UTIL": [
+      5137510126,
+      5139607277
+    ]
+  },
+  "output": "/home/iknowyou/ATOCIA/RESEARCH_EXTERNAL/ACMETRACE_KALOS_PILOT/seren_gpu_panel_aug18_2023_crosscluster_v1.csv.gz",
+  "privacy_note": "Unsalted SHA-256 truncation is pseudonymization, not guaranteed anonymization. Do not publicly release persistent host/GPU hashes.",
+  "panel_sha256": "a38e908b87fa80aca4b50a21502f473b6e3cecf4ac7580faf6e92eebce179e00"
+}

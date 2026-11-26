@@ -1,0 +1,184 @@
+{
+  "experiment": "Frozen Kalos-trained ATRP-1 applied to Seren, cross-cluster",
+  "model_source": "/home/iknowyou/ATOCIA/RESEARCH_EXTERNAL/ACMETRACE_KALOS_PILOT/atrp1_huber_13f_train6_val29_test30_v1_model.npz",
+  "model_alpha": 10.0,
+  "huber_delta_from_train": 25.9564762913135,
+  "model_sha256": "4ea1584614de77ae97f5e5a00b29fa8d50d8338a23c2a7240d6f28954bfb21e9",
+  "panel_sha256": "a38e908b87fa80aca4b50a21502f473b6e3cecf4ac7580faf6e92eebce179e00",
+  "source_revision": "a484f7763a7812fc72eb49b8ba865b12fe7638e1",
+  "cluster": "Seren",
+  "window": {
+    "first_timestamp": "2023-08-18T07:12:45+08:00",
+    "last_timestamp": "2023-08-18T08:00:00+08:00",
+    "common_timestamps": 190,
+    "sampling_interval_seconds": 15,
+    "horizon_seconds": 15
+  },
+  "fit_or_tuning_on_seren": false,
+  "baseline": "persistence",
+  "samples": {
+    "forecast_count": 362624,
+    "gpu_entities_with_forecasts": 1960,
+    "host_entities_with_forecasts": 245,
+    "forecast_timestamps": 187
+  },
+  "target_distribution": {
+    "min_w": 58.599998474121094,
+    "max_w": 520.9000244140625,
+    "mean_w": 183.436279296875,
+    "std_w": 128.56478881835938
+  },
+  "model_metrics": {
+    "micro_mae_w": 41.1062182877945,
+    "micro_rmse_w": 85.40822624783269,
+    "macro_gpu_mae_w": 40.67788373281541,
+    "macro_host_mae_w": 40.67788373281541,
+    "prediction_min_w": 57.51698289451025,
+    "prediction_max_w": 518.8972010454492,
+    "fraction_negative_predictions": 0.0
+  },
+  "baseline_metrics": {
+    "micro_mae_w": 41.470890045166016,
+    "micro_rmse_w": 99.02759552001953,
+    "macro_gpu_mae_w": 41.03034380815781,
+    "macro_host_mae_w": 41.0303438081578
+  },
+  "skill_vs_persistence": {
+    "micro_mae": 0.008793439373361744,
+    "micro_rmse": 0.13753105082142014,
+    "macro_gpu_mae": 0.008590229635665914,
+    "macro_host_mae": 0.008590229635665803
+  },
+  "host_paired_bootstrap": {
+    "replicates": 2000,
+    "seed": 20261122,
+    "mean_host_mae_improvement_w": 0.35246007534239193,
+    "ci_95_w": [
+      -0.11956255317838628,
+      0.8565831079769254
+    ],
+    "hosts_improved": 111,
+    "hosts_equal": 0,
+    "hosts_worse": 134,
+    "median_improvement_w": -0.1723127811328169,
+    "p05_improvement_w": -4.799752702476636,
+    "p95_improvement_w": 5.550995816091358
+  },
+  "subgroups_by_current_gpu_utilization": {
+    "util_0_10": {
+      "n": 77966,
+      "baseline_mae_w": 3.3731653690338135,
+      "model_mae_w": 4.268907961474899,
+      "baseline_rmse_w": 25.2569637298584,
+      "model_rmse_w": 21.85255396242938
+    },
+    "util_10_50": {
+      "n": 13276,
+      "baseline_mae_w": 42.94894027709961,
+      "model_mae_w": 39.3973708898179,
+      "baseline_rmse_w": 93.55451965332031,
+      "model_rmse_w": 77.51590634787743
+    },
+    "util_50_90": {
+      "n": 27728,
+      "baseline_mae_w": 55.45622634887695,
+      "model_mae_w": 52.21067339744748,
+      "baseline_rmse_w": 109.40436553955078,
+      "model_rmse_w": 93.22458582598026
+    },
+    "util_90_100": {
+      "n": 243654,
+      "baseline_mae_w": 51.989566802978516,
+      "model_mae_w": 51.72307688103291,
+      "baseline_rmse_w": 112.03380584716797,
+      "model_rmse_w": 96.88699742232153
+    }
+  },
+  "feature_shift_vs_kalos_training_scaler": {
+    "power_t": {
+      "z_mean": -0.0372842456953241,
+      "z_std": 0.9206501840863356,
+      "fraction_abs_z_gt_3": 0.0,
+      "abs_z_p95": 1.5998858855821654
+    },
+    "power_t_minus_15s": {
+      "z_mean": -0.03674626702659444,
+      "z_std": 0.9210361419219785,
+      "fraction_abs_z_gt_3": 0.0,
+      "abs_z_p95": 1.5990665665436097
+    },
+    "power_t_minus_30s": {
+      "z_mean": -0.03579597549461844,
+      "z_std": 0.9214612807220374,
+      "fraction_abs_z_gt_3": 0.0,
+      "abs_z_p95": 1.5985574859790161
+    },
+    "power_delta_t": {
+      "z_mean": -0.0006925884168054772,
+      "z_std": 0.9212516002511518,
+      "fraction_abs_z_gt_3": 0.010360593893399224,
+      "abs_z_p95": 2.670661584991218
+    },
+    "power_delta_previous": {
+      "z_mean": -0.0012321221707597594,
+      "z_std": 0.9221954162348196,
+      "fraction_abs_z_gt_3": 0.010357836216025415,
+      "abs_z_p95": 2.670803772516286
+    },
+    "temperature_t": {
+      "z_mean": 0.2929998005658728,
+      "z_std": 1.0326012517410605,
+      "fraction_abs_z_gt_3": 0.00040813625132368514,
+      "abs_z_p95": 2.1636275673759995
+    },
+    "temperature_t_minus_15s": {
+      "z_mean": 0.29414473861963314,
+      "z_std": 1.0329724818128563,
+      "fraction_abs_z_gt_3": 0.00040813625132368514,
+      "abs_z_p95": 2.1631341835958198
+    },
+    "temperature_t_minus_30s": {
+      "z_mean": 0.2956979487772477,
+      "z_std": 1.0335841003253645,
+      "fraction_abs_z_gt_3": 0.00040813625132368514,
+      "abs_z_p95": 2.1632597198486616
+    },
+    "temperature_delta_t": {
+      "z_mean": -0.002574376127241282,
+      "z_std": 0.8869439387961053,
+      "fraction_abs_z_gt_3": 0.022086238086833746,
+      "abs_z_p95": 2.3575149030745193
+    },
+    "utilization_t": {
+      "z_mean": 0.19337183839546251,
+      "z_std": 0.9029768200571079,
+      "fraction_abs_z_gt_3": 0.0,
+      "abs_z_p95": 1.4217470698066583
+    },
+    "utilization_t_minus_15s": {
+      "z_mean": 0.19233379411862542,
+      "z_std": 0.9033317750612242,
+      "fraction_abs_z_gt_3": 0.0,
+      "abs_z_p95": 1.4229567095225364
+    },
+    "utilization_t_minus_30s": {
+      "z_mean": 0.1910716212501302,
+      "z_std": 0.9028377850064877,
+      "fraction_abs_z_gt_3": 0.0,
+      "abs_z_p95": 1.422910052005443
+    },
+    "utilization_delta_t": {
+      "z_mean": 0.003410636510603968,
+      "z_std": 1.0338156786731296,
+      "fraction_abs_z_gt_3": 0.036304822626191315,
+      "abs_z_p95": 2.1346300150404107
+    }
+  },
+  "limitations": [
+    "One short window from the separate Seren cluster; not a second organization or dataset.",
+    "The date is 2023-08-18 and does not follow the Kalos training calendar chronologically; this is a spatial transfer test, not a later-time test.",
+    "No model fitting, calibration, threshold choice, or feature selection was performed on Seren.",
+    "Potential hardware heterogeneity is not yet fully verified from cluster_summary metadata.",
+    "One window does not characterize the entire Seren cluster or all GPU types."
+  ]
+}

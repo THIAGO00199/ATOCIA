@@ -1,0 +1,92 @@
+{
+  "dataset": "AcmeTrace / Kalos",
+  "source": "https://huggingface.co/datasets/Qinghao/AcmeTrace",
+  "method": "Only the 12 previously verified HTTP byte ranges were fetched; full CSV files were not downloaded.",
+  "file_sizes_bytes": {
+    "POWER_USAGE": 929567543,
+    "GPU_TEMP": 845136147,
+    "GPU_UTIL": 843403137
+  },
+  "downloaded_csv_bytes": 25165824,
+  "gpu_columns": 2344,
+  "unique_hosts": 293,
+  "window_count": 4,
+  "windows": {
+    "2023-08-18T12:00:00+08:00": {
+      "common_timestamps": 55,
+      "first_timestamp": "2023-08-17T21:04:30+08:00",
+      "last_timestamp": "2023-08-17T21:18:00+08:00",
+      "valid_triplet_rows": 87010,
+      "possible_triplets": 128920,
+      "coverage_fraction": 0.6749146757679181,
+      "common_interval_seconds": [
+        15.0
+      ]
+    },
+    "2023-08-22T12:00:00+08:00": {
+      "common_timestamps": 139,
+      "first_timestamp": "2023-08-22T11:38:00+08:00",
+      "last_timestamp": "2023-08-22T12:12:30+08:00",
+      "valid_triplet_rows": 323592,
+      "possible_triplets": 325816,
+      "coverage_fraction": 0.9931740614334471,
+      "common_interval_seconds": [
+        15.0
+      ]
+    },
+    "2023-08-26T12:00:00+08:00": {
+      "common_timestamps": 147,
+      "first_timestamp": "2023-08-26T11:45:00+08:00",
+      "last_timestamp": "2023-08-26T12:21:30+08:00",
+      "valid_triplet_rows": 344568,
+      "possible_triplets": 344568,
+      "coverage_fraction": 1.0,
+      "common_interval_seconds": [
+        15.0
+      ]
+    },
+    "2023-08-29T12:00:00+08:00": {
+      "common_timestamps": 122,
+      "first_timestamp": "2023-08-29T11:47:45+08:00",
+      "last_timestamp": "2023-08-29T12:18:00+08:00",
+      "valid_triplet_rows": 285968,
+      "possible_triplets": 285968,
+      "coverage_fraction": 1.0,
+      "common_interval_seconds": [
+        15.0
+      ]
+    }
+  },
+  "total_valid_triplet_rows": 1041138,
+  "total_possible_triplet_rows": 1085272,
+  "overall_triplet_coverage": 0.9593336969902476,
+  "gpu_entities_with_at_least_one_complete_triplet": 2344,
+  "gpu_entities_with_100pct_triplets_in_extracted_panel": 1582,
+  "value_ranges": {
+    "POWER_USAGE": {
+      "min": 56.6,
+      "median": 100.0,
+      "max": 567.7,
+      "n": 1041138
+    },
+    "GPU_TEMP": {
+      "min": 25.0,
+      "median": 40.0,
+      "max": 77.0,
+      "n": 1041138
+    },
+    "GPU_UTIL": {
+      "min": 0.0,
+      "median": 97.0,
+      "max": 100.0,
+      "n": 1041138
+    }
+  },
+  "output": "/home/iknowyou/ATOCIA/RESEARCH_EXTERNAL/ACMETRACE_KALOS_PILOT/kalos_gpu_panel_4windows_v1.csv.gz",
+  "privacy": "IP-based GPU identifiers are SHA-256 hashed; raw host/IP identifiers are not written to the panel.",
+  "limits": [
+    "Four sparse time windows only; do not treat as a full-period or representative cluster sample.",
+    "15-second sampling limits claims to slower dynamics, not sub-second transients.",
+    "No predictive model has been trained by this extractor."
+  ]
+}

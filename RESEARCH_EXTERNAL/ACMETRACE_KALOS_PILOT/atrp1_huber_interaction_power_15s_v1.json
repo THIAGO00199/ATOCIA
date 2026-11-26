@@ -1,0 +1,136 @@
+{
+  "experiment": "Robust Ridge with three interaction features",
+  "target": "per-GPU power at t+15 seconds (W)",
+  "train_windows": [
+    "2023-08-17T21:04:30+08:00",
+    "2023-08-22T11:38:00+08:00"
+  ],
+  "validation_window": "2023-08-26T11:45:00+08:00",
+  "untouched_test_window": "2023-08-29T11:47:45+08:00",
+  "train_samples": 398872,
+  "validation_samples": 337536,
+  "test_samples": 278936,
+  "feature_count": 16,
+  "extra_features": [
+    "power_t * utilization_t / 100",
+    "power_t * (temperature_t - 40) / 40",
+    "utilization_t * temperature_t / 100"
+  ],
+  "loss": "Huber IRLS; scale estimated from the 75th percentile of absolute centered training residuals because more than half the deltas are exactly zero",
+  "selected_alpha": 1000.0,
+  "validation_model_metrics": {
+    "10.0": {
+      "micro_mae_w": 45.915401817822115,
+      "micro_rmse_w": 95.44713300792586,
+      "macro_gpu_mae_w": 45.91540181782211,
+      "macro_host_mae_w": 45.91540181782211
+    },
+    "100.0": {
+      "micro_mae_w": 45.88827842941587,
+      "micro_rmse_w": 95.52784397177165,
+      "macro_gpu_mae_w": 45.88827842941587,
+      "macro_host_mae_w": 45.88827842941587
+    },
+    "1000.0": {
+      "micro_mae_w": 45.78389477844428,
+      "micro_rmse_w": 96.24187694438272,
+      "macro_gpu_mae_w": 45.783894778444285,
+      "macro_host_mae_w": 45.783894778444285
+    }
+  },
+  "validation_selected_baseline": "persistence",
+  "ablation_without_interactions": {
+    "feature_count": 13,
+    "selected_alpha": 1000.0,
+    "validation_metrics_by_alpha": {
+      "10.0": {
+        "micro_mae_w": 45.812822394696425,
+        "micro_rmse_w": 95.62191092608512,
+        "macro_gpu_mae_w": 45.812822394696425,
+        "macro_host_mae_w": 45.812822394696425
+      },
+      "100.0": {
+        "micro_mae_w": 45.802879915534405,
+        "micro_rmse_w": 95.68543466048149,
+        "macro_gpu_mae_w": 45.802879915534405,
+        "macro_host_mae_w": 45.8028799155344
+      },
+      "1000.0": {
+        "micro_mae_w": 45.7427071941415,
+        "micro_rmse_w": 96.35696034963719,
+        "macro_gpu_mae_w": 45.7427071941415,
+        "macro_host_mae_w": 45.7427071941415
+      }
+    },
+    "untouched_test_metrics": {
+      "micro_mae_w": 49.10196787986271,
+      "micro_rmse_w": 98.81598309077248,
+      "macro_gpu_mae_w": 49.10196787986272,
+      "macro_host_mae_w": 49.10196787986272
+    },
+    "test_skill_vs_persistence_macro_host_mae": 0.12237834469827857,
+    "test_skill_vs_persistence_micro_mae": 0.12237834862853103
+  },
+  "test": {
+    "baseline_name": "persistence",
+    "baseline_metrics": {
+      "micro_mae_w": 55.94890213012695,
+      "micro_rmse_w": 119.86270141601562,
+      "macro_gpu_mae_w": 55.94890187957102,
+      "macro_host_mae_w": 55.94890187957103
+    },
+    "huber_metrics": {
+      "micro_mae_w": 49.117380646801095,
+      "micro_rmse_w": 98.7217082436857,
+      "macro_gpu_mae_w": 49.117380646801095,
+      "macro_host_mae_w": 49.11738064680109
+    },
+    "skill_vs_baseline": {
+      "micro_mae_w": 0.12210286928306446,
+      "micro_rmse_w": 0.1763767454143591,
+      "macro_gpu_mae_w": 0.12210286535157822,
+      "macro_host_mae_w": 0.12210286535157855
+    },
+    "host_bootstrap_ci_95_mae_improvement_w": [
+      6.192387931927775,
+      7.551578161391236
+    ],
+    "host_count": 293,
+    "subgroups_by_current_gpu_utilization": {
+      "util_0_10": {
+        "n": 78149,
+        "baseline_mae_w": 4.394413471221924,
+        "huber_mae_w": 4.3587364886840385,
+        "baseline_rmse_w": 32.267852783203125,
+        "huber_rmse_w": 28.29345289490929
+      },
+      "util_10_50": {
+        "n": 4812,
+        "baseline_mae_w": 46.47244644165039,
+        "huber_mae_w": 42.88763033069805,
+        "baseline_rmse_w": 95.89498901367188,
+        "huber_rmse_w": 82.41618484527108
+      },
+      "util_50_90": {
+        "n": 12470,
+        "baseline_mae_w": 32.754241943359375,
+        "huber_mae_w": 30.934114005388615,
+        "baseline_rmse_w": 74.51399993896484,
+        "huber_rmse_w": 65.52181049238864
+      },
+      "util_90_100": {
+        "n": 183505,
+        "baseline_mae_w": 79.72901916503906,
+        "huber_mae_w": 69.57767424017561,
+        "baseline_rmse_w": 144.14137268066406,
+        "huber_rmse_w": 118.3366426844626
+      }
+    }
+  },
+  "limits": [
+    "Four short separated windows only; this does not establish six-month generalization.",
+    "One-step horizon is 15 seconds; not a sub-second transient test.",
+    "This is a follow-up experiment, not a validated product model or novelty claim.",
+    "The final date window was not used for selection."
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "dataset": "AcmeTrace / Kalos",
+  "source_used_for_ranges": "https://huggingface.co/datasets/Qinghao/AcmeTrace/tree/a484f7763a7812fc72eb49b8ba865b12fe7638e1",
+  "cross_mirror_reference": "HuggingAGree/AcmeTrace@19b38a000850a38cb39f9ee808c80cd6e39b20e7",
+  "official_repository": "https://github.com/InternLM/AcmeTrace",
+  "source_revision": "a484f7763a7812fc72eb49b8ba865b12fe7638e1",
+  "metric_file_sizes_bytes": {
+    "POWER_USAGE": 929567543,
+    "GPU_TEMP": 845136147,
+    "GPU_UTIL": 843403137
+  },
+  "gpu_columns": 2344,
+  "unique_hosts": 293,
+  "window_count": 8,
+  "windows": {
+    "2023-08-18T12:00:00+08:00": {
+      "common_timestamps": 55,
+      "first_timestamp": "2023-08-17T21:04:30+08:00",
+      "last_timestamp": "2023-08-17T21:18:00+08:00",
+      "valid_triplet_rows": 87010,
+      "possible_triplets": 128920,
+      "coverage_fraction": 0.6749146757679181,
+      "common_interval_seconds": [
+        15.0
+      ]
+    },
+    "2023-08-22T12:00:00+08:00": {
+      "common_timestamps": 139,
+      "first_timestamp": "2023-08-22T11:38:00+08:00",
+      "last_timestamp": "2023-08-22T12:12:30+08:00",
+      "valid_triplet_rows": 323592,
+      "possible_triplets": 325816,
+      "coverage_fraction": 0.9931740614334471,
+      "common_interval_seconds": [
+        15.0
+      ]
+    },
+    "2023-08-25T12:00:00+08:00": {
+      "common_timestamps": 143,
+      "first_timestamp": "2023-08-25T11:41:00+08:00",
+      "last_timestamp": "2023-08-25T12:16:30+08:00",
+      "valid_triplet_rows": 334168,
+      "possible_triplets": 335192,
+      "coverage_fraction": 0.9969450344876966,
+      "common_interval_seconds": [
+        15.0
+      ],
+      "gpu_entities_with_data": 2344,
+      "gpu_entities_with_complete_window": 2336,
+      "host_entities_with_data": 293
+    },
+    "2023-08-26T12:00:00+08:00": {
+      "common_timestamps": 147,
+      "first_timestamp": "2023-08-26T11:45:00+08:00",
+      "last_timestamp": "2023-08-26T12:21:30+08:00",
+      "valid_triplet_rows": 344568,
+      "possible_triplets": 344568,
+      "coverage_fraction": 1.0,
+      "common_interval_seconds": [
+        15.0
+      ]
+    },
+    "2023-08-27T12:00:00+08:00": {
+      "common_timestamps": 121,
+      "first_timestamp": "2023-08-27T11:37:30+08:00",
+      "last_timestamp": "2023-08-27T12:07:30+08:00",
+      "valid_triplet_rows": 283624,
+      "possible_triplets": 283624,
+      "coverage_fraction": 1.0,
+      "common_interval_seconds": [
+        15.0
+      ],
+      "gpu_entities_with_data": 2344,
+      "gpu_entities_with_complete_window": 2344,
+      "host_entities_with_data": 293
+    },
+    "2023-08-28T12:00:00+08:00": {
+      "common_timestamps": 157,
+      "first_timestamp": "2023-08-28T11:41:00+08:00",
+      "last_timestamp": "2023-08-28T12:20:00+08:00",
+      "valid_triplet_rows": 368008,
+      "possible_triplets": 368008,
+      "coverage_fraction": 1.0,
+      "common_interval_seconds": [
+        15.0
+      ],
+      "gpu_entities_with_data": 2344,
+      "gpu_entities_with_complete_window": 2344,
+      "host_entities_with_data": 293
+    },
+    "2023-08-29T12:00:00+08:00": {
+      "common_timestamps": 122,
+      "first_timestamp": "2023-08-29T11:47:45+08:00",
+      "last_timestamp": "2023-08-29T12:18:00+08:00",
+      "valid_triplet_rows": 285968,
+      "possible_triplets": 285968,
+      "coverage_fraction": 1.0,
+      "common_interval_seconds": [
+        15.0
+      ]
+    },
+    "2023-08-30T12:00:00+08:00": {
+      "common_timestamps": 139,
+      "first_timestamp": "2023-08-30T11:45:30+08:00",
+      "last_timestamp": "2023-08-30T12:20:00+08:00",
+      "valid_triplet_rows": 324565,
+      "possible_triplets": 325816,
+      "coverage_fraction": 0.996160409556314,
+      "common_interval_seconds": [
+        15.0
+      ],
+      "gpu_entities_with_data": 2335,
+      "gpu_entities_with_complete_window": 2335,
+      "host_entities_with_data": 292
+    }
+  },
+  "total_valid_triplet_rows": 2351503,
+  "total_possible_triplet_rows": 2397912,
+  "overall_triplet_coverage": 0.9806460787551837,
+  "downloaded_new_range_bytes": 25165824,
+  "output": "/home/iknowyou/ATOCIA/RESEARCH_EXTERNAL/ACMETRACE_KALOS_PILOT/kalos_gpu_panel_8windows_v2.csv.gz",
+  "privacy_note": "Host/GPU IDs are deterministic unsalted SHA-256 pseudonyms, not guaranteed anonymization. Keep the panel internal; create keyed pseudonyms before external release.",
+  "limits": [
+    "Eight sparse, separated windows are not a representative six-month sample.",
+    "All windows are from Kalos; cross-cluster or cross-hardware generalization is untested.",
+    "The 15-second cadence does not support sub-second transient claims.",
+    "Window IDs are chronological; gaps are never bridged."
+  ]
+}

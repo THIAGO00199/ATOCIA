@@ -1,0 +1,110 @@
+{
+  "experiment": "Frozen ATRP-1 application to separate Aug 31 temporal holdout",
+  "model_source": "/home/iknowyou/ATOCIA/RESEARCH_EXTERNAL/ACMETRACE_KALOS_PILOT/atrp1_huber_13f_train6_val29_test30_v1_model.npz",
+  "model_alpha": 10.0,
+  "model_sha256": "4ea1584614de77ae97f5e5a00b29fa8d50d8338a23c2a7240d6f28954bfb21e9",
+  "panel_sha256": "f81ff51fdb2edce239958d0422d8669c2989bc12600fe71f4ee4d2277b67e5a3",
+  "panel_source_revision": "a484f7763a7812fc72eb49b8ba865b12fe7638e1",
+  "panel_first_timestamp": "2023-08-31T07:20:15+08:00",
+  "panel_last_timestamp": "2023-08-31T08:00:00+08:00",
+  "panel_common_timestamps": 160,
+  "sampling_interval_seconds": 15,
+  "horizon_seconds": 15,
+  "fit_or_tuning_on_holdout": false,
+  "baseline_name": "persistence",
+  "features": [
+    "power_t",
+    "power_t_minus_15s",
+    "power_t_minus_30s",
+    "power_delta_t",
+    "power_delta_previous",
+    "temperature_t",
+    "temperature_t_minus_15s",
+    "temperature_t_minus_30s",
+    "temperature_delta_t",
+    "utilization_t",
+    "utilization_t_minus_15s",
+    "utilization_t_minus_30s",
+    "utilization_delta_t"
+  ],
+  "samples": {
+    "forecasts": 366595,
+    "gpu_entities": 2335,
+    "host_entities": 292,
+    "forecast_timestamps": 157
+  },
+  "model_metrics": {
+    "micro_mae_w": 44.40321173914193,
+    "micro_rmse_w": 87.68409252402991,
+    "macro_gpu_mae_w": 44.40321173914193,
+    "macro_host_mae_w": 44.3850591345485,
+    "prediction_min_w": 57.91759489004954,
+    "prediction_max_w": 532.2418212006937
+  },
+  "baseline_metrics": {
+    "micro_mae_w": 56.1518669128418,
+    "micro_rmse_w": 120.78878784179688,
+    "macro_gpu_mae_w": 56.15186757817528,
+    "macro_host_mae_w": 56.12784476534866,
+    "prediction_min_w": 58.099998474121094,
+    "prediction_max_w": 543.7000122070312
+  },
+  "skill_vs_persistence": {
+    "micro_mae": 0.20923000106008904,
+    "micro_rmse": 0.27407092917536224,
+    "macro_gpu_mae": 0.20923001042978195,
+    "macro_host_mae": 0.20921497484702534
+  },
+  "host_paired_bootstrap": {
+    "replicates": 2000,
+    "seed": 20261122,
+    "mean_host_mae_improvement_w": 11.742785630800158,
+    "ci_95_w": [
+      10.441339012633073,
+      13.002466377576772
+    ],
+    "hosts_improved": 192,
+    "hosts_equal": 0,
+    "hosts_worse": 100,
+    "median_improvement_w": 17.367649134034863,
+    "p05_improvement_w": -2.3392207442861577,
+    "p95_improvement_w": 24.802070708971684
+  },
+  "subgroups_by_current_gpu_utilization": {
+    "util_0_10": {
+      "n": 95739,
+      "baseline_mae_w": 3.346759080886841,
+      "model_mae_w": 3.904771101167345,
+      "baseline_rmse_w": 28.487852096557617,
+      "model_rmse_w": 22.602421000497564
+    },
+    "util_10_50": {
+      "n": 6133,
+      "baseline_mae_w": 39.826969146728516,
+      "model_mae_w": 35.66753316972658,
+      "baseline_rmse_w": 84.64876556396484,
+      "model_rmse_w": 69.0575087221257
+    },
+    "util_50_90": {
+      "n": 15817,
+      "baseline_mae_w": 28.891698837280273,
+      "model_mae_w": 27.24037698477953,
+      "baseline_rmse_w": 68.44889831542969,
+      "model_rmse_w": 57.03789509835889
+    },
+    "util_90_100": {
+      "n": 248906,
+      "baseline_mae_w": 78.59730529785156,
+      "model_mae_w": 61.286375191268526,
+      "baseline_rmse_w": 143.88180541992188,
+      "model_rmse_w": 103.93783583372301
+    }
+  },
+  "limitations": [
+    "Single short tail window within Kalos, not an independent cluster or hardware population.",
+    "Same 15-second cadence and forecast horizon as training; no sub-second test.",
+    "This is a later date and a different time of day, but not a full-day evaluation.",
+    "No parameter fitting, calibration, or threshold choice was made on this holdout.",
+    "Forecasting improvement does not imply energy savings or operational control benefit."
+  ]
+}

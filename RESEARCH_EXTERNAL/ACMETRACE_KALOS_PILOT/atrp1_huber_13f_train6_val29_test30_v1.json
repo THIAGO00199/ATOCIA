@@ -1,0 +1,248 @@
+{
+  "experiment": "ATRP-1 Huber Ridge 13-feature chronological re-evaluation",
+  "source": {
+    "dataset": "AcmeTrace / Kalos",
+    "revision": "a484f7763a7812fc72eb49b8ba865b12fe7638e1",
+    "sampling_interval_seconds": 15,
+    "target": "DCGM per-GPU power at t+15s (W)",
+    "units": {
+      "POWER_USAGE": "DCGM_FI_DEV_POWER_USAGE, W",
+      "GPU_TEMP": "DCGM_FI_DEV_GPU_TEMP, degrees C",
+      "GPU_UTIL": "DCGM_FI_DEV_GPU_UTIL, percent"
+    }
+  },
+  "split": {
+    "train_windows": [
+      "2023-08-17T21:04:30+08:00",
+      "2023-08-22T11:38:00+08:00",
+      "2023-08-25T11:41:00+08:00",
+      "2023-08-26T11:45:00+08:00",
+      "2023-08-27T11:37:30+08:00",
+      "2023-08-28T11:41:00+08:00"
+    ],
+    "validation_window": "2023-08-29T11:47:45+08:00",
+    "final_test_window": "2023-08-30T11:45:30+08:00",
+    "chronological": true,
+    "windows_never_bridged": true,
+    "test_used_for_selection": false,
+    "same_kalos_cluster_and_repeated_gpu_entities": true
+  },
+  "samples": {
+    "train": 1701112,
+    "validation": 278936,
+    "test": 317560,
+    "gpu_entities_total": 2344,
+    "host_entities_total": 293,
+    "per_window_forecasts": [
+      82264,
+      316608,
+      327136,
+      337536,
+      276592,
+      360976,
+      278936,
+      317560
+    ]
+  },
+  "features": [
+    "power_t",
+    "power_t_minus_15s",
+    "power_t_minus_30s",
+    "power_delta_t",
+    "power_delta_previous",
+    "temperature_t",
+    "temperature_t_minus_15s",
+    "temperature_t_minus_30s",
+    "temperature_delta_t",
+    "utilization_t",
+    "utilization_t_minus_15s",
+    "utilization_t_minus_30s",
+    "utilization_delta_t"
+  ],
+  "model": {
+    "type": "Huber IRLS residual correction over persistence",
+    "interaction_features": false,
+    "alpha_candidates": [
+      10.0,
+      100.0,
+      1000.0
+    ],
+    "selected_alpha": 10.0,
+    "huber_delta": 25.9564762913135,
+    "validation_metrics_by_alpha": {
+      "10.0": {
+        "n_forecasts": 278936,
+        "gpu_entities": 2344,
+        "host_entities": 293,
+        "micro_mae_w": 45.11044862544781,
+        "micro_rmse_w": 88.58595144542241,
+        "macro_gpu_mae_w": 45.11044862544781,
+        "macro_host_mae_w": 45.11044862544781,
+        "prediction_min_w": 58.43657829666281,
+        "prediction_max_w": 560.2202162147703
+      },
+      "100.0": {
+        "n_forecasts": 278936,
+        "gpu_entities": 2344,
+        "host_entities": 293,
+        "micro_mae_w": 45.11531868225608,
+        "micro_rmse_w": 88.58728997421959,
+        "macro_gpu_mae_w": 45.11531868225608,
+        "macro_host_mae_w": 45.11531868225607,
+        "prediction_min_w": 58.43652948099975,
+        "prediction_max_w": 560.2187359897456
+      },
+      "1000.0": {
+        "n_forecasts": 278936,
+        "gpu_entities": 2344,
+        "host_entities": 293,
+        "micro_mae_w": 45.16395520784958,
+        "micro_rmse_w": 88.60160151679689,
+        "macro_gpu_mae_w": 45.16395520784959,
+        "macro_host_mae_w": 45.16395520784959,
+        "prediction_min_w": 58.4360769792674,
+        "prediction_max_w": 560.2040502580658
+      }
+    },
+    "selected_baseline_on_validation": "persistence",
+    "validation_baseline_metrics": {
+      "persistence": {
+        "n_forecasts": 278936,
+        "gpu_entities": 2344,
+        "host_entities": 293,
+        "micro_mae_w": 55.94890213012695,
+        "micro_rmse_w": 119.86270141601562,
+        "macro_gpu_mae_w": 55.94890187957102,
+        "macro_host_mae_w": 55.94890187957103,
+        "prediction_min_w": 57.79999923706055,
+        "prediction_max_w": 567.7000122070312
+      },
+      "moving_average_3": {
+        "n_forecasts": 278936,
+        "gpu_entities": 2344,
+        "host_entities": 293,
+        "micro_mae_w": 85.71786499023438,
+        "micro_rmse_w": 126.63622283935547,
+        "macro_gpu_mae_w": 85.71786122255482,
+        "macro_host_mae_w": 85.7178612225548,
+        "prediction_min_w": 57.79999923706055,
+        "prediction_max_w": 524.7999877929688
+      },
+      "ewma_alpha_0_5": {
+        "n_forecasts": 278936,
+        "gpu_entities": 2344,
+        "host_entities": 293,
+        "micro_mae_w": 77.97296905517578,
+        "micro_rmse_w": 118.82556915283203,
+        "macro_gpu_mae_w": 77.97296313707237,
+        "macro_host_mae_w": 77.97296313707237,
+        "prediction_min_w": 57.79999923706055,
+        "prediction_max_w": 518.2000122070312
+      },
+      "ewma_alpha_0_3": {
+        "n_forecasts": 278936,
+        "gpu_entities": 2344,
+        "host_entities": 293,
+        "micro_mae_w": 84.85057830810547,
+        "micro_rmse_w": 124.81820678710938,
+        "macro_gpu_mae_w": 84.85057004413609,
+        "macro_host_mae_w": 84.8505700441361,
+        "prediction_min_w": 57.79999923706055,
+        "prediction_max_w": 526.1199951171875
+      }
+    }
+  },
+  "artifacts": {
+    "model_parameters_npz": "/home/iknowyou/ATOCIA/RESEARCH_EXTERNAL/ACMETRACE_KALOS_PILOT/atrp1_huber_13f_train6_val29_test30_v1_model.npz",
+    "model_parameters_sha256": "4ea1584614de77ae97f5e5a00b29fa8d50d8338a23c2a7240d6f28954bfb21e9",
+    "combined_panel_sha256": "b52fc9898e52f19b8947c42453dedf22aaf7191fa87564070cdced04788485bc"
+  },
+  "final_test": {
+    "model_metrics": {
+      "n_forecasts": 317560,
+      "gpu_entities": 2335,
+      "host_entities": 292,
+      "micro_mae_w": 44.911441245172966,
+      "micro_rmse_w": 86.5680718758844,
+      "macro_gpu_mae_w": 44.91144124517297,
+      "macro_host_mae_w": 44.89232621733428,
+      "prediction_min_w": 59.17253359995506,
+      "prediction_max_w": 536.9742911997964
+    },
+    "baseline_name": "persistence",
+    "baseline_metrics": {
+      "n_forecasts": 317560,
+      "gpu_entities": 2335,
+      "host_entities": 292,
+      "micro_mae_w": 58.73596954345703,
+      "micro_rmse_w": 122.84445190429688,
+      "macro_gpu_mae_w": 58.73596735797041,
+      "macro_host_mae_w": 58.710830955807204,
+      "prediction_min_w": 59.5,
+      "prediction_max_w": 549.4000244140625
+    },
+    "skill_vs_baseline": {
+      "micro_mae_w": 0.23536732952123485,
+      "micro_rmse_w": 0.29530336507727617,
+      "macro_gpu_mae_w": 0.23536730107027792,
+      "macro_host_mae_w": 0.23536551115882498
+    },
+    "host_paired_bootstrap": {
+      "replicates": 2000,
+      "seed": 20261122,
+      "mean_host_mae_improvement_w": 13.818504738472932,
+      "ci_95_w": [
+        12.256657227343576,
+        15.399772727979661
+      ],
+      "host_improvement_distribution": {
+        "hosts_improved": 198,
+        "hosts_equal": 0,
+        "hosts_worse": 94,
+        "median_improvement_w": 20.199009233605608,
+        "p05_improvement_w": -2.765485171418409,
+        "p95_improvement_w": 30.461404348187884
+      },
+      "interpretation": "positive values favor the model; resampling unit is host"
+    },
+    "subgroups_by_current_gpu_utilization": {
+      "util_0_10": {
+        "n": 76903,
+        "baseline_mae_w": 5.137664318084717,
+        "model_mae_w": 6.538447533978286,
+        "baseline_rmse_w": 34.75732421875,
+        "model_rmse_w": 28.248236406198174
+      },
+      "util_10_50": {
+        "n": 6953,
+        "baseline_mae_w": 39.91055679321289,
+        "model_mae_w": 37.04759577438709,
+        "baseline_rmse_w": 86.56190490722656,
+        "model_rmse_w": 71.19111758304716
+      },
+      "util_50_90": {
+        "n": 16335,
+        "baseline_mae_w": 30.44936180114746,
+        "model_mae_w": 29.344415162461353,
+        "baseline_rmse_w": 69.4607162475586,
+        "model_rmse_w": 59.179575104165025
+      },
+      "util_90_100": {
+        "n": 217369,
+        "baseline_mae_w": 80.4263916015625,
+        "model_mae_w": 59.90880988555625,
+        "baseline_rmse_w": 144.9718017578125,
+        "model_rmse_w": 101.19589441327544
+      }
+    }
+  },
+  "limitations": [
+    "The eight windows are short, sparse snapshots; not representative continuous six-month coverage.",
+    "All evaluation is within Kalos; this tests later-time generalization on a repeated cluster, not unseen GPU models or clusters.",
+    "Forecast horizon is 15 seconds only; no sub-second transients evaluated.",
+    "Aug 29 has become validation/development data; Aug 30 is the new held-out date.",
+    "Forecast improvement does not demonstrate energy savings or safe control.",
+    "The original first Ridge model failed on MAE; the 16-feature interaction ablation showed no interaction benefit.",
+    "Host bootstrap on one sampled date does not remove temporal dependence or prove broad external validity."
+  ]
+}
